@@ -404,6 +404,13 @@ h1 em {
   padding: 12px 14px;
   background: #fff;
 }
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 .form-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
 .btn-secondary-modern, .btn-primary-modern { display: inline-flex; align-items: center; gap: 8px; }
 .btn-secondary-modern {

@@ -63,12 +63,15 @@
             <div class="form-group"><label class="form-label">Позиција</label><input class="form-control" type="text" name="position" required></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">Телефон</label><input class="form-control" type="text" name="phone" required></div>
-            <div class="form-group"><label class="form-label">Е-маил</label><input class="form-control" type="email" name="email" required></div>
+            <div class="form-group"><label class="form-label">Телефон</label><input class="form-control" type="tel" name="phone" maxlength="40" required></div>
+            <div class="form-group"><label class="form-label">Е-маил</label><input class="form-control" type="email" name="email" maxlength="190" required></div>
           </div>
           <div class="form-group">
-            <label class="form-label">CV (PDF, DOC, DOCX)</label>
+            <label class="form-label">CV (PDF, DOC, DOCX · макс. 5 MB)</label>
             <input class="form-control-file" type="file" name="cv" accept=".pdf,.doc,.docx" required>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
           </div>
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Испрати</button>
