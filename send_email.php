@@ -1,10 +1,7 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/PHPMailer.php';
-require __DIR__ . '/SMTP.php';
-require __DIR__ . '/Exception.php';
+require __DIR__ . '/mail_setup.php';
 
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const ALLOWED_CV_TYPES = ['pdf', 'doc', 'docx'];
@@ -166,19 +163,10 @@ foreach ($rows as $label => $value) {
     $textRows .= "$label: $value\n";
 }
 
-$mail = new PHPMailer(true);
+$mail = null;
 
 try {
-    $mail->CharSet = PHPMailer::CHARSET_UTF8;
-    $mail->isSMTP();
-    $mail->Host = $config['host'];
-    $mail->SMTPAuth = true;
-    $mail->Username = $config['username'];
-    $mail->Password = $config['password'];
-    $mail->SMTPSecure = ($config['secure'] ?? 'ssl') === 'tls' ? PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port = (int) $config['port'];
-
-    $mail->setFrom($config['from_email'], $config['from_name']);
+    $mail = create_mailer($config);
     $mail->addAddress($config['to']);
     $mail->addReplyTo($email, $fullName);
 
@@ -190,7 +178,7 @@ try {
 
     $mail->send();
 } catch (Exception $e) {
-    error_log('send_email.php: ' . $mail->ErrorInfo);
+    error_log('send_email.php: ' . ($mail ? $mail->ErrorInfo : $e->getMessage()));
     render(false, 'Апликацијата не е испратена', $failMessage);
 }
 
