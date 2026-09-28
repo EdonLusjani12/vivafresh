@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $mail->Host = 'mail.spar.mk';
                         $mail->SMTPAuth = true;
                         $mail->Username = 'noreply@spar.mk';
-                        $mail->Password = 'Spar.12';
+                        $mail->Password = 'Spar123!@';
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                         $mail->Port = 8025;
 
