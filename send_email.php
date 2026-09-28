@@ -44,15 +44,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     try {
                         $mail->isSMTP();
-                        $mail->Host = 'odin.mk-host.com';
+                        $mail->Host = 'mail.spar.mk';
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'info@superkitgo.mk';
-                        $mail->Password = 'KitGo.12!';
+                        $mail->Username = 'noreply@spar.mk';
+                        $mail->Password = 'Spar.12';
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                        $mail->Port = 465;
+                        $mail->Port = 8025;
 
-                        $mail->setFrom('info@superkitgo.mk', 'SuperKitGo');
-                        $mail->addAddress('superkitgomk@gmail.com');
+                        $mail->setFrom('noreply@spar.mk', 'SuperKitGo');
+                        $mail->addAddress('edon.lusjani@spar.mk');
 
                         $mail->isHTML(true);
                         $mail->Subject = "New Job Application from $first_name $last_name";
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <p><strong>Position:</strong> $position</p>
                             <p><strong>Phone:</strong> $phone</p>
                             <p><strong>Email:</strong> $email</p>
-                            <p><strong>CV:</strong> <a href='https://superkitgo.mk/$upload_file' target='_blank'>Download CV</a></p>
+                            <p><strong>CV:</strong> <a href='https://vivafresh.mk/$upload_file' target='_blank'>Download CV</a></p>
                         ";
 
                         $mail->addAttachment($upload_file, 'CV_' . $first_name . '_' . $last_name);
