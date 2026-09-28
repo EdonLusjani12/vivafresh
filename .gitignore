@@ -1,6 +1,10 @@
 .DS_Store
 Thumbs.db
 *.log
+error_log
+error_log.txt
 .env
 .env.*
+*.zip
+db_config.php
 !/.cpanel.yml

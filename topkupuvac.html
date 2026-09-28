@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva Fresh Store MK</title>
+
+    <!-- Bootstrap 4.5.2 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        
+        body {
+            background-image: url('desktop.jpg');
+            background-repeat: no-repeat;
+            background-position:  bottom;
+            background-size: 1800px;
+            
+            min-height: 100vh;
+            padding-top: 80px; /* Adjusted to ensure the navbar doesn't overlap */
+            transition: background 0.3s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-image: url('mobile2.jpg');
+                background-size: cover;
+                background-position: bottom;
+                min-height: 20vh;
+            }
+        }
+
+        /* Navbar Styling */
+        .navbar-custom {
+            background-color: rgb(13, 123, 62);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 15px; /* Spacing for mobile responsiveness */
+        }
+
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+
+        .navbar-toggler {
+            border-color: rgb(13, 123, 62);
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .nav-link {
+            color: rgb(252, 248, 245) !important;
+            font-size: 1.1rem;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: rgb(13, 123, 62) !important;
+            background-color: rgba(13, 123, 62, 0.1);
+            border-radius: 5px;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        .navbar-nav .nav-item {
+            padding-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar-nav .nav-item {
+                padding: 10px 0;
+            }
+
+            .navbar-brand img {
+                height: 60px;
+            }
+        }
+
+        .navbar1 {
+            background-color: rgb(13, 123, 62);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .logo-container img {
+            width: 200px;
+            height: auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .social-icons {
+            position: left;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .social-icons a {
+            margin-left: 15px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+        .navbar-toggler {
+    border: none; /* Optional: Remove the default border */
+    background: transparent; /* Optional: Remove the background */
+}
+
+.navbar-toggler img {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+}
+.round-button {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgb(13, 123, 62);
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for buttons */
+        .round-button:hover {
+            background-color: rgb(245, 0, 0);
+            transform: scale(1.1); /* Scale up button */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button Image inside */
+        .button-image {
+            height: 70%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        /* Text below button */
+        .button-text {
+            position: absolute;
+            bottom: -30px;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* Additional button for mobile responsiveness */
+        .round-button-mobile {
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Adjust positioning of buttons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-top: 200px;
+            margin-left: 200px;
+            flex-wrap: wrap;
+            gap: 80px;
+        }
+
+        /* Ensure buttons are properly aligned on mobile */
+        @media (max-width: 768px) {
+            .round-button {
+                width: 120px;
+                height: 120px;
+            }
+
+            .round-button-mobile {
+                width: 100px;
+                height: 100px;
+            }
+            .button-container {
+            display: flex;
+            flex-direction: row;
+            margin-left: auto;
+            
+            justify-content: space-around;
+            margin-top: 820px;
+            flex-wrap: wrap;
+        }
+        }
+
+    </style>
+</head>
+<body>
+   
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="index.html">
+            <img src="Logo.png" alt="Viva Fresh Store MK">
+        </a>
+        <div class="navbar1">
+            VIVA FRESH STORE MK
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/vivafreshmk/"><img src="insta.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/freshstoremk"><img src="fb.png" alt="Facebook"></a>
+        </div>
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            
+            <img src="9293128.png" alt="Menu" style="width: 30px; height: 30px;">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Дома</a></li>
+                <li class="nav-item"><a class="nav-link" href="kontakt.html">Контакт</a></li>
+                <li class="nav-item"><a class="nav-link" href="vrabotuvanje.html">Вработување</a></li>
+                <li class="nav-item"><a class="nav-link" href="topkupuvac.html">Топ Купувачи</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ценовници</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="download.php?file=vivafresh1">Вивафреш 1</a>
+                        <a class="dropdown-item" href="download.php?file=vivafresh2">Вивафреш 2</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="toogoodtogo1.php">Too Good To Go</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="button-container">
+        <!-- First button -->
+        <a class="round-button" onclick="window.location.href='download1.php?file=vivafresh1';">
+    <img src="list.png" alt="Button Image" class="button-image">
+    <div class="button-text">Вивафреш 1</div>
+</a>
+
+<!-- Second button -->
+<button class="round-button" onclick="window.location.href='download1.php?file=vivafresh2';">
+    <img src="list.png" alt="Button Image" class="button-image">
+    <div class="button-text">Вивафреш 2</div>
+</button>
+
+
+        <!-- Third button -->
+        
+    </div>
+
+   
+
+    <!-- Logo Section -->
+    
+    
+
+    <!-- Social Media Icons -->
+    
+    <!-- Required JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

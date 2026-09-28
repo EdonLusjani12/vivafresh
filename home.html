@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viva Fresh Store MK</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    .navbar-custom {
+        background-color: rgb(13, 123, 62);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 4px 10px;
+    }
+
+    .navbar-brand img {
+        position: fixed;
+        
+        transform: translateY(-50%);
+        height: 100px;
+        width: auto;
+        border-radius: 50px;
+       
+    }
+
+     .navbar-toggler {
+      
+        display:inline-block;
+    }
+
+    .navbar-toggler img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+    
+
+    .navbar-nav .nav-item {
+        padding-left: 20px;
+    }
+
+    .nav-link {
+        color: rgb(252, 248, 245) !important;
+        font-size: 1.1rem;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+    .nav-link:hover {
+        color: black !important;
+        background-color: rgba(13, 123, 62, 0.1);
+        border-radius: 5px;
+    }
+
+    .header-section {
+        background-color: rgb(13, 123, 62);
+        color: white;
+        padding: 30px 15px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+    }
+
+    .highlight-title {
+        font-size: 3.2rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, orange, white);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: pulseTitle 2s ease-in-out infinite;
+    }
+
+    .header-section p {
+        font-size: 1.3rem;
+        font-style: italic;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+
+    .products-title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #0d7b3e;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .products-container {
+        max-width: 1100px;
+        margin: 0 auto 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 260px;
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+
+    .product-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: rgb(13, 123, 62);
+    }
+
+    .discount-text {
+        font-weight: bold;
+        color: #e63946;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .btn-view-prices {
+        background-color: #e63946;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: auto;
+    }
+
+    .btn-view-prices:hover {
+        background-color: #b22c36;
+    }
+
+    .dropdown-menu {
+        min-width: 140px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        border-radius: 6px;
+        padding: 5px 0;
+        z-index: 10;
+        display: none;
+    }
+
+    .percentage-badge-top {
+        width: 1000px;
+        height: 150px;
+        margin-bottom: 1px;
+        margin-top: -25px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .promo-text-center {
+        margin-top: 15px;
+        font-size: 1.1rem;
+        color: black;
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+    }
+
+   .promo-badge {
+            position: absolute;
+            top: 650px;
+            right: 20px;
+            background: linear-gradient(45deg, red, orange);
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            font-size: 1rem;
+            border-radius: 30px;
+            z-index: 2000;
+            animation: bounce 1.5s infinite;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+    .social-icons {
+        position: flex;
+        top: 20px;
+        left: 500px;
+        z-index: 999;
+    }
+
+    .social-icons a {
+        margin-left: 15px;
+    }
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar1 {
+        background-color: rgb(13, 123, 62);
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-left:100px;
+    }
+
+    @media (max-width: 768px) {
+      .products-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .highlight-title {
+            font-size: 2rem;
+        }
+
+        .header-section {
+            padding: 20px 10px;
+        }
+
+        .navbar-brand img {
+            height: 60px;
+        }
+
+        .navbar-nav .nav-item {
+            padding: 10px 0;
+            background-color: rgb(13, 123, 62);
+        }
+        .navbar1{
+            margin-left:50px;
+        }
+    }
+
+.top-section {
+  background-color: #d71920;
+  color: white;
+  padding: 15px 20px 25px; /* reduced bottom padding */
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+    .middle-section {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .card-placeholder {
+      width: 340px;
+      height: 200px;
+      background-color: #eee;
+      border: 2px dashed #bbb;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #999;
+    }
+
+    .slogan {
+      font-size: 28px;
+      font-weight: bold;
+      color: #006838;
+      margin-top: 20px;
+    }
+
+    .slogan span.red {
+      color: #d71920;
+    }
+
+    .contact {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #000;
+    }
+
+    .contact-number {
+      font-weight: bold;
+      color: #d71920;
+      font-size: 22px;
+    }
+
+    .icons {
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    .icons i {
+      margin: 0 10px;
+    }
+
+    .bottom-section {
+      background-color: #006838;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 22px;
+      font-weight: bold;
+      clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    @media (max-width: 768px) {
+      .top-section {
+        font-size: 28px;
+        padding: 60px 20px;
+      }
+
+      .slogan {
+        font-size: 22px;
+      }
+
+      .bottom-section {
+        font-size: 18px;
+        padding: 40px 20px;
+      }
+    }
+
+    /* === Video Section Styles === */
+    .video-section {
+      background-color: #0d7b3e;
+      padding: 30px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .video-section p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    /* Responsive Video Container */
+    .video-container {
+      position: relative;
+      width: 560px;       /* fixed width on desktop */
+      height: 315px;      /* fixed height on desktop */
+      margin: 0 auto;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 560px;
+      height: 315px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .video-container {
+        width: 100%;           /* full width */
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      }
+
+      .video-container iframe {
+        position: absolute;
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+    @keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseColor {
+  0%, 100% {
+    color: white;
+    text-shadow: 0 0 10px rgb(215,25,32);
+  }
+  50% {
+    color: white;
+    text-shadow: 0 0 20px #d71920;
+  }
+}
+
+.video-section h2 {
+  animation: fadeInUp 1.5s ease forwards, pulseColor 3s ease infinite;
+  opacity: 0; /* start hidden */
+   
+}
+    .clickable-image {
+      width: 400px;
+      height: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .clickable-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-container {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="index.html">
+            <img src="Logo.png" alt="Super KitGo MK">
+        </a>
+        <div class="navbar1">
+           VIVA FRESH STORE MK
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/vivafreshmk/"><img src="insta.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/freshstoremk"><img src="fb.png" alt="Facebook"></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="9293128.png" alt="Menu" style="width: 30px; height: 30px;">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Дома</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Контакт</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Вработување</a></li>
+                <li class="nav-item"><a class="nav-link" href="katalog.html">Каталог</a></li>
+                <li class="nav-item"><a class="nav-link" href="cenovnik.html">Ценовници</a></li>
+                
+                <li class="nav-item"><a class="nav-link" href="toogoodtogo1.php">Too Good To Go</a></li>
+            </ul>
+        </div>
+    </nav>
+
+ 
+  <div class="top-section">
+    НОВО
+  </div>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <h2>Добредојдовте во Viva Fresh Store MK</h2>
+     <p> <b>  Огромен асортиман, врвен квалитет и цени достапни за секого – сè што ви треба, на едно место! </b> 
+    <br> </p>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/VK4yqmTIG-4?autoplay=1&mute=1&loop=1&playlist=VK4yqmTIG-4"
+        title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Middle Content -->
+  <div class="middle-section">
+    <div class="image-container">
+        <a href="loyalty.html"><img src="loyalty.jpg" alt="Menu" style="width: 400px; height: 300px;"class="clickable-image"></div>
+        </a>
+    <div class="slogan">
+      За повеќе Лојалти акции и промоции кликнете на <span class="red">картицата</span><br/>
+      Për më shumë aksione dhe promovime të Lojalitetit, klikoni mbi <span class="red">kartelën</span>
+    </div>
+    <div class="contact">
+      Kontakt telefon / Telefon për kontakt:<br/>
+      <div class="contact-number">071 350 288</div>
+      <div class="icons">
+        <i class="fab fa-viber" style="color: #7360f2;"></i>
+        <i class="fab fa-whatsapp" style="color: #25d366;"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Green Diagonal Section -->
+  <div class="bottom-section">
+    СТАНЕТЕ ДЕЛ ОД НАШЕТО ЛОЈАЛТИ СЕМЕЈСТВО<br/>
+    BËHUNI PJESË E FAMILJES SONË BESNIKE
+  </div>
+  <footer style="text-align: center; padding: 20px; font-size: 14px; background-color: #f8f8f8; color: #555;">
+  &copy; 2025 Viva Fresh Store MK. All rights reserved. 
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
