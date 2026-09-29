@@ -2,28 +2,27 @@
 # =============================
 # PROTECT SENSITIVE FILES
 # =============================
-<FilesMatch "(db_config\.php|config\.php|\.env)">
+<FilesMatch "(db_config\.php|config\.php|\.env|\.sqlite)">
     Require all denied
 </FilesMatch>
+
+DirectoryIndex index.php index.html
 
 # Enable rewrite engine
 RewriteEngine On
 
 # -----------------------------
-# 1. Keep katalog.html accessible
-RewriteCond %{REQUEST_URI} ^/katalog\.html$ [NC]
-RewriteRule ^ - [L]
+# 1. The pages are PHP now; send old .html links to the new pages
+RewriteCond %{THE_REQUEST} \s/index\.(html|php)[\s?] [NC]
+RewriteRule ^index\.(html|php)$ / [R=301,L]
+RewriteRule ^(katalog|cenovnik|kontakt|vrabotuvanje)\.html$ /$1.php [R=301,L]
 
 # -----------------------------
-# 2. Redirect index.html to /
-RewriteCond %{THE_REQUEST} /index\.html [NC]
-RewriteRule ^index\.html$ / [R=301,L]
-
-# -----------------------------
-# 3. Optional: clean URLs for other .html files
+# 2. Clean URLs (/kontakt -> kontakt.php)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^.]+)/?$ $1.html [L]
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([^./]+)/?$ $1.php [L]
 
 # -----------------------------
 # 4. Block hotlinking (optional)

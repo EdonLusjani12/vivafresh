@@ -7,7 +7,11 @@ error_log.txt
 .env.*
 *.zip
 db_config.php
+db_config.local.php
 mail_config.php
+*.sqlite
 uploads/*
 !uploads/.htaccess
+media/*
+!media/.htaccess
 !/.cpanel.yml
